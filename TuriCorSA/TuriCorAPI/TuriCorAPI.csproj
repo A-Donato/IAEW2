@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -144,16 +145,16 @@
       <DependentUpon>ModelTuriCorSA.edmx</DependentUpon>
       <LastGenOutput>ModelTuriCorSA.cs</LastGenOutput>
     </Content>
-    <None Include="Service References\ServiceReferenceReservaVehiculos\configuration91.svcinfo" />
-    <None Include="Service References\ServiceReferenceReservaVehiculos\configuration.svcinfo" />
-    <None Include="Service References\ServiceReferenceReservaVehiculos\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+    <None Include="Service References\ServiceReference\configuration91.svcinfo" />
+    <None Include="Service References\ServiceReference\configuration.svcinfo" />
+    <None Include="Service References\ServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -197,7 +198,7 @@
       <DependentUpon>ModelTuriCorSA.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\ServiceReferenceReservaVehiculos\Reference.cs">
+    <Compile Include="Service References\ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -213,25 +214,43 @@
     <Content Include="Models\ModelTuriCorSA.edmx.diagram">
       <DependentUpon>ModelTuriCorSA.edmx</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReferenceReservaVehiculos\TuriCorAPI.ServiceReferenceReservaVehiculos.CancelarReservaResponse.datasource">
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.CancelarReservaResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReferenceReservaVehiculos\TuriCorAPI.ServiceReferenceReservaVehiculos.ConsultarCiudadesResponse.datasource">
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.CancelarReservaResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReferenceReservaVehiculos\TuriCorAPI.ServiceReferenceReservaVehiculos.ConsultarPaisesResponse.datasource">
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ConsultarCiudadesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReferenceReservaVehiculos\TuriCorAPI.ServiceReferenceReservaVehiculos.ConsultarReservasResponse.datasource">
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ConsultarCiudadesResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReferenceReservaVehiculos\TuriCorAPI.ServiceReferenceReservaVehiculos.ConsultarVehiculosDisponiblesResponse.datasource">
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ConsultarPaisesResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\ServiceReferenceReservaVehiculos\TuriCorAPI.ServiceReferenceReservaVehiculos.ReservarVehiculoResponse.datasource">
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ConsultarPaisesResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <None Include="Service References\ServiceReferenceReservaVehiculos\WCFReservaVehiculos.wsdl" />
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ConsultarReservaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ConsultarReservasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ConsultarVehiculosDisponiblesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ConsultarVehiculosDisponiblesResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ReservarVehiculoResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\ServiceReference\TuriCorAPI.ServiceReference.ReservarVehiculoResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Service References\ServiceReference\WCFReservaVehiculos.wsdl" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -239,15 +258,14 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference\" />
+  </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReferenceReservaVehiculos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

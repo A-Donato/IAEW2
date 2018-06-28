@@ -16,8 +16,8 @@ namespace SeguridadOAuth
     {
         public readonly static Cliente cliente = new Cliente
         {
-            Id = "TPI_GrupoNro1",
-            Secret = "pass12345",
+            Id = "grupo_nro7_client",
+            Secret = "test_secret",
             RedirectUrl = Rutas.AuthorizeCodeCallBackPath
         };
 

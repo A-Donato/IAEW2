@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="cf9a4cce-baf4-48f3-98bd-391531d6f866" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1bf4206a-2e1c-4eed-8393-8a01b2c373b9" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://romeroruben-001-site1.itempurl.com/WCFReservaVehiculos.svc?singlewsdl" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://services-1712917028.us-east-1.elb.amazonaws.com/turicor/WCFReservaVehiculos.svc?singleWsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="WCFReservaVehiculos.wsdl" MetadataType="Wsdl" ID="c64e2030-1c35-4ccb-8c3b-67200b86f656" SourceId="1" SourceUrl="http://romeroruben-001-site1.itempurl.com/WCFReservaVehiculos.svc?singlewsdl" />
+    <MetadataFile FileName="WCFReservaVehiculos.wsdl" MetadataType="Wsdl" ID="d842a3d1-ad8b-45b0-b923-0121a95ae332" SourceId="1" SourceUrl="http://services-1712917028.us-east-1.elb.amazonaws.com/turicor/WCFReservaVehiculos.svc?singleWsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

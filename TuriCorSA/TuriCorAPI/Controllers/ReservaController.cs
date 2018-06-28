@@ -7,10 +7,10 @@ using System.Web.Http;
 using System.Web.Http.Cors;
 using TuriCorAPI.Models;
 using AuthorizationServer.App_Start;
-using TuriCorAPI.ServiceReferenceReservaVehiculos;
 using System.Data.Entity.Validation;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Core;
+using TuriCorAPI.ServiceReference;
 
 namespace TuriCorAPI.Controllers
 {
@@ -62,15 +62,15 @@ namespace TuriCorAPI.Controllers
 
         public IHttpActionResult Get(bool incluirCancel)
         {
+            var credential = new Credentials();
+            credential.UserName = "grupo_nro7";
+            credential.Password = "WSbRKVdf";
             try
             {
-                var cliente = new ServiceReferenceReservaVehiculos.WCFReservaVehiculosClient();
+                var cliente = new WCFReservaVehiculosClient();
 
-                var reservas = cliente.ConsultarReservas(new ServiceReferenceReservaVehiculos.ConsultarReservasRequest()
-                {
-                    IncluirCanceladas = incluirCancel
-
-                });
+                var reservas = cliente.ConsultarReserva(credential,new ConsultarReservasRequest()
+                );
 
                 if (reservas == null)
                 {
@@ -87,11 +87,14 @@ namespace TuriCorAPI.Controllers
         [HttpPost]
         public IHttpActionResult Post([FromBody]SuperReserva res)
         {
+            var credential = new Credentials();
+            credential.UserName = "grupo_nro7";
+            credential.Password = "WSbRKVdf";
             try
             {
-                var cliente = new ServiceReferenceReservaVehiculos.WCFReservaVehiculosClient();
+                var cliente = new WCFReservaVehiculosClient();
 
-                var reserva = cliente.ReservarVehiculo(new ServiceReferenceReservaVehiculos.ReservarVehiculoRequest()
+                var reserva = cliente.ReservarVehiculo(credential, new ReservarVehiculoRequest()
                 {
                     ApellidoNombreCliente = res.ApellidoNombreCliente,
                     FechaHoraDevolucion = res.FechaHoraDevolucion,
@@ -181,6 +184,9 @@ namespace TuriCorAPI.Controllers
 
         public IHttpActionResult Delete(int id)
         {
+            var credential = new Credentials();
+            credential.UserName = "grupo_nro7";
+            credential.Password = "WSbRKVdf";
             try
             {
                 var res = _db.Reserva.Find(id);
@@ -188,13 +194,13 @@ namespace TuriCorAPI.Controllers
                 {
                     return NotFound();
                 }
-                var cliente = new ServiceReferenceReservaVehiculos.WCFReservaVehiculosClient();
+                var cliente = new WCFReservaVehiculosClient();
 
                 _db.Reserva.Remove(res);
 
                 _db.SaveChanges();
 
-                var reserva = cliente.CancelarReserva(new ServiceReferenceReservaVehiculos.CancelarReservaRequest()
+                var reserva = cliente.CancelarReserva(credential, new CancelarReservaRequest()
                 {
                     CodigoReserva = res.CodigoReserva
                 });

@@ -6,19 +6,25 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using TuriCorAPI.ServiceReference;
 
 namespace TuriCorAPI.Controllers
 {
     public class CiudadController : ApiController
     {
+
         //[Scope("read")]
         public IHttpActionResult Get(int id) 
         {
+            var credential = new Credentials();
+            credential.UserName = "grupo_nro7";
+            credential.Password = "WSbRKVdf";
             try
             {
-                var cliente = new ServiceReferenceReservaVehiculos.WCFReservaVehiculosClient();
+                
+                var cliente = new WCFReservaVehiculosClient();
 
-                var ciudades= cliente.ConsultarCiudades(new ServiceReferenceReservaVehiculos.ConsultarCiudadesRequest()
+                var ciudades= cliente.ConsultarCiudades(credential,new ConsultarCiudadesRequest()
                 {
                     IdPais = id,
                    
@@ -32,17 +38,21 @@ namespace TuriCorAPI.Controllers
             }
             catch (Exception ex)
             {
-
+                
                 return InternalServerError(ex);
             }
         }
         public IHttpActionResult Get(int idCiudad, int idPais)
         {
+            var credential = new Credentials();
+            credential.UserName = "grupo_nro7";
+            credential.Password = "WSbRKVdf";
+
             try
             {
-                var cliente = new ServiceReferenceReservaVehiculos.WCFReservaVehiculosClient();
+                var cliente = new WCFReservaVehiculosClient();
 
-                var ciudades = cliente.ConsultarCiudades(new ServiceReferenceReservaVehiculos.ConsultarCiudadesRequest()
+                var ciudades = cliente.ConsultarCiudades(credential,new ConsultarCiudadesRequest()
                 {
                     IdPais = idPais,
 

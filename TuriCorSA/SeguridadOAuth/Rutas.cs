@@ -14,8 +14,8 @@ namespace SeguridadOAuth
 
         public const string AuthorizeCodeCallBackPath = "http://localhost:8660/Account/CallBack";
 
-        public const string AuthorizePath = "/openam/oauth2/authorize";
-        public const string TokenPath = "/openam/oauth2/access_token";
+        public const string AuthorizePath = "http://ec2-54-87-197-49.compute-1.amazonaws.com/web/authorize";
+        public const string TokenPath = "http://ec2-54-87-197-49.compute-1.amazonaws.com/v1/oauth/tokens";
         public const string MePath = "/api/Me";
     }
 }

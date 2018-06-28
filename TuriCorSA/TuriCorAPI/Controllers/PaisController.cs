@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
 using AuthorizationServer.App_Start;
+using TuriCorAPI.ServiceReference;
 
 namespace TuriCorAPI.Controllers
 {
@@ -16,11 +17,15 @@ namespace TuriCorAPI.Controllers
         
         public IHttpActionResult Get()
         {
+            var credential = new Credentials();
+            credential.UserName = "grupo_nro7";
+            credential.Password = "WSbRKVdf";
             try
             {
-                var cliente = new ServiceReferenceReservaVehiculos.WCFReservaVehiculosClient();
 
-                var pais = cliente.ConsultarPaises();
+                var cliente = new WCFReservaVehiculosClient();
+
+                var pais = cliente.ConsultarPaises(credential);
                 
                 if (pais == null)
                 {
@@ -36,11 +41,15 @@ namespace TuriCorAPI.Controllers
         }
         public IHttpActionResult Get(int id)
         {
+            var credential = new Credentials();
+            credential.UserName = "grupo_nro7";
+            credential.Password = "WSbRKVdf";
+            
             try
             {
-                var cliente = new ServiceReferenceReservaVehiculos.WCFReservaVehiculosClient();
+                var cliente = new WCFReservaVehiculosClient();
 
-                var pais = cliente.ConsultarPaises();
+                var pais = cliente.ConsultarPaises(credential);
                
               
                 if (pais == null)
